@@ -69,7 +69,7 @@ export async function getServerSideProps(context) {
   const csrfToken = await getCsrfToken(context)
   const rawUser = await models.user.findUnique({ where: { id: id } });
 
-  if (!session || session && session.user.id !== parseInt(id) ) {
+  if (!session || session && session.user.id !== id ) {
     return {
       redirect: {
         destination: '/',
