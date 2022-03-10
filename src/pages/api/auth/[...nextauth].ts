@@ -36,10 +36,10 @@ const options = {
     error: '/auth/error', // Error code passed in query string as ?error=
     verifyRequest: '/auth/verify-request', // (used for check email message)
   },
-  // callbacks: {
-  //   async session({ session, user }) {
-  //     session.user.id = user.id
-  //     return Promise.resolve(session)
-  //   },
-  // }
+  callbacks: {
+    async session({ session, user }) {
+      session.user.id = user.id
+      return Promise.resolve(session)
+    },
+  }
 };
