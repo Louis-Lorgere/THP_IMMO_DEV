@@ -10,7 +10,8 @@ export default async (req, res) => {
   try {
     const updateUser = await models.user.update({
       where: {
-        id: parseInt(id),
+        id: id,
+        // id: parseInt(id),
       },
       data: {
         name,
