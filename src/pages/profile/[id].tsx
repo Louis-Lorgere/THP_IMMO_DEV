@@ -67,7 +67,7 @@ export async function getServerSideProps(context) {
   const { id } = context.params
   const session = await getSession(context)
   const csrfToken = await getCsrfToken(context)
-  const rawUser = await models.user.findUnique({ where: { id: parseInt(id) } });
+  const rawUser = await models.user.findUnique({ where: { id: id } });
 
   if (!session || session && session.user.id !== parseInt(id) ) {
     return {
